@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="box bg-black">
       <a href='/' target='_blank' rel='noreferrer' className='flex gap-2 flex-row justify-center items-center'>
-        <h1 className='text-xl text-white font-semibold font-mono'>🔥 Made by Adi</h1>
+        <h1 className='text-xl text-white mt-5 font-semibold font-mono'>🔥 Made by Adi</h1>
       </a>
       <div className="content">
         <h1 className="heading text-center pb-2 font-serif">Online Video <span className='ease-in text-[gradient-to-br from-[#cd5bf0] via-[#ff1940] to-[#ff9900]]'>Downloader</span></h1>
@@ -60,11 +60,17 @@ function App() {
         />
       <button className="button" onClick={getApidata}>Download Video</button>
       {isLoading && <div className='text-white bg-transparent mt-5'>Loading...</div>}
-      {videoData && <div className='flex flex-row justify-between border-2 border-indigo-400 items-center w-10/12 p-5 m-5'>
+      {videoData && <div>
+        <div className='mt-5 mb-5'>
+          <video width="320" height="240" controls> 
+            <source src={videoDownloadURL} />
+          </video>
+        </div>
+        <div className='flex flex-row justify-between border-2 border-indigo-400 items-center w-10/12 p-5 m-5'>
         <img src={Thumbnail} alt="" srcset="" className='h-20 w-20'/>
         <h3 className='text-white'>{videoQuality}</h3>
         <a href={videoDownloadURL} target='_blank' rel='noreferrer' className='bg-blue-500 text-white p-2 rounded'> Download </a>
-      </div>}
+      </div></div>}
       </div>
     </div>
   );
